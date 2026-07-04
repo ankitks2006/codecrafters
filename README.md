@@ -261,7 +261,7 @@ GET/POST/PUT/DELETE /api/admin/testimonials Testimonial CRUD
 
 ---
 
-## ☁️ Deployment
+<!-- ## ☁️ Deployment
 
 ### Frontend → Vercel
 1. Push `frontend/` to GitHub
@@ -304,10 +304,10 @@ Videos are **never** stored in MongoDB. Only metadata is stored:
 }
 ```
 
-Upload videos to MEGA manually, copy the share link, paste it when creating lessons.
+Upload videos to MEGA manually, copy the share link, paste it when creating lessons. -->
 
 ---
-
+<!-- 
 ## 🔒 Certificate Verification
 
 Every certificate has:
@@ -396,6 +396,6 @@ MIT License — see [LICENSE](LICENSE) file.
 <div align="center">
   <p>Made with ❤️ by Code Crafters Tech Team</p>
   <p>⭐ Star this repo if it helped you!</p>
-</div>
+</div> -->
 
 <!--email  vagadax478@heavty.com -->
