@@ -1,31 +1,22 @@
 const nodemailer = require('nodemailer');
 const logger = require('../utils/logger');
 
-// const transporter = nodemailer.createTransport({
-//   host: process.env.EMAIL_HOST,
-//   port: process.env.EMAIL_PORT,
-//   secure: false,
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS,
-//   },
-//   tls: { rejectUnauthorized: false },
-// });
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
   port: Number(process.env.EMAIL_PORT),
-  secure: false,
+  secure: process.env.EMAIL_PORT === '465',
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  requireTLS: true,
+  tls: {
+    rejectUnauthorized: false,
+  },
+  connectionTimeout: 15000,
+  greetingTimeout: 10000,
+  socketTimeout: 15000,
 });
-// add here
-console.log("EMAIL_HOST =", process.env.EMAIL_HOST);
-console.log("EMAIL_PORT =", process.env.EMAIL_PORT);
-console.log("EMAIL_USER =", process.env.EMAIL_USER);
-console.log("EMAIL_PASS =", process.env.EMAIL_PASS);
+
 transporter.verify((error, success) => {
   if (error) {
     console.error("SMTP Verify Error:", error);
@@ -33,6 +24,7 @@ transporter.verify((error, success) => {
     console.log("SMTP Server is ready");
   }
 });
+
 const emailStyles = `
   body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f6fb; margin: 0; padding: 0; }
   .wrapper { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
