@@ -101,4 +101,41 @@ app.use(notFound);
 // Global error handler
 app.use(errorHandler);
 
+
+
+
+
+
+
+
+
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+async function sendStartupEmail() {
+  try {
+    const info = await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, // Sends to your own email
+      subject: "Backend Started 🚀",
+      text: "Your backend has started successfully on Render.",
+    });
+
+    console.log("Email sent:", info.messageId);
+  } catch (err) {
+    console.error("Email failed:", err);
+  }
+}
+
+sendStartupEmail();
+
 module.exports = app;
