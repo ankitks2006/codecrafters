@@ -15,6 +15,9 @@ const logger = require('./utils/logger');
 
 const app = express();
 
+// Trust proxy for Render
+app.set('trust proxy', 1);
+
 
 // Security headers
 // app.use(helmet({
@@ -48,6 +51,7 @@ const limiter = rateLimit({
   message: { success: false, message: 'Too many requests, please try again later.' },
   standardHeaders: true,
   legacyHeaders: false,
+  trustProxy: true,
 });
 
 // Auth-specific rate limiter (stricter)
@@ -55,6 +59,7 @@ const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 10,
   message: { success: false, message: 'Too many login attempts. Please try again in 15 minutes.' },
+  trustProxy: true,
 });
 
 app.use('/api/', limiter);
