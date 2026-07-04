@@ -8,7 +8,10 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  tls: { rejectUnauthorized: false },
+  // tls: { rejectUnauthorized: false },
+  connectionTimeout: 15000,
+  greetingTimeout: 10000,
+  socketTimeout: 15000,
 });
 
 // console.log("Email Config - Host:", process.env.EMAIL_HOST, "Port:", process.env.EMAIL_PORT, "User:", process.env.EMAIL_USER);
