@@ -1,48 +1,7 @@
-const nodemailer = require('nodemailer');
+const sgMail = require('@sendgrid/mail');
 const logger = require('../utils/logger');
-const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  // tls: { rejectUnauthorized: false },
-  connectionTimeout: 15000,
-  greetingTimeout: 10000,
-  socketTimeout: 15000,
-  requireTLS: true,
-tls: {
-  minVersion: "TLSv1.2",
-},
-});
 
-// console.log("Email Config - Host:", process.env.EMAIL_HOST, "Port:", process.env.EMAIL_PORT, "User:", process.env.EMAIL_USER);
-
-// const transporter = nodemailer.createTransport({
-//   host: process.env.EMAIL_HOST,
-//   port: Number(process.env.EMAIL_PORT),
-//   secure: process.env.EMAIL_PORT === '465',
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS,
-//   },
-//   tls: {
-//     rejectUnauthorized: false,
-//   },
-//   connectionTimeout: 15000,
-//   greetingTimeout: 10000,
-//   socketTimeout: 15000,
-// });
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.error("SMTP Verify Error:", error);
-  } else {
-    console.log("SMTP Server is ready");
-  }
-});
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const emailStyles = `
   body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f6fb; margin: 0; padding: 0; }
@@ -174,14 +133,15 @@ const templates = {
 
 const sendEmail = async ({ to, subject, html, attachments = [] }) => {
   try {
-    const info = await transporter.sendMail({
-      from: process.env.EMAIL_FROM,
+    const msg = {
       to,
+      from: process.env.EMAIL_FROM,
       subject,
       html,
       attachments,
-    });
-    logger.info(`Email sent: ${info.messageId} to ${to}`);
+    };
+    const info = await sgMail.send(msg);
+    logger.info(`Email sent: ${info[0].headers['x-message-id']} to ${to}`);
     return info;
   } catch (error) {
     logger.error(`Email send failed: ${error.message}`);

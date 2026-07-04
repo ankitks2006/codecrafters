@@ -192,7 +192,11 @@ exports.forgotPassword = async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
 
     const resetLink = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}&email=${email}`;
-    await emailService.sendPasswordReset(email, user.firstName, resetLink);
+    try {
+      await emailService.sendPasswordReset(email, user.firstName, resetLink);
+    } catch (emailError) {
+      logger.error(`Password reset email failed for ${email}: ${emailError.message}`);
+    }
 
     return ApiResponse.success(res, null, 'Password reset link sent to your email.');
   } catch (error) {
