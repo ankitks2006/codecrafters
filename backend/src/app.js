@@ -25,7 +25,7 @@ app.use(helmet({
 // CORS
 app.use(cors({
   // origin: [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000','https://singular-gingersnap-48fa02.netlify.app/'],
-  origin: [process.env.FRONTEND_URL, 'https://singular-gingersnap-48fa02.netlify.app/'],
+  origin: [process.env.FRONTEND_URL, 'https://singular-gingersnap-48fa02.netlify.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
