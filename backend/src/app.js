@@ -17,20 +17,29 @@ const app = express();
 
 
 // Security headers
-app.use(helmet({
-  crossOriginResourcePolicy: { policy: 'cross-origin' },
-  contentSecurityPolicy: false,
+// app.use(helmet({
+//   crossOriginResourcePolicy: { policy: 'cross-origin' },
+//   contentSecurityPolicy: false,
+// }));
+
+// // CORS
+// app.use(cors({
+//   // origin: [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000','https://singular-gingersnap-48fa02.netlify.app/'],
+//   origin: [process.env.FRONTEND_URL],
+//   credentials: true,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+// }));
+// ;
+app.use(cors({
+  origin: true, // allow all origins
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-// CORS
-app.use(cors({
-  // origin: [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000','https://singular-gingersnap-48fa02.netlify.app/'],
-  origin: [process.env.FRONTEND_URL],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-}));
-;
+// 2. Handle preflight requests
+app.options("*", cors());
 
 // Rate limiting
 const limiter = rateLimit({
