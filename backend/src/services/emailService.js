@@ -1,23 +1,33 @@
 const nodemailer = require('nodemailer');
 const logger = require('../utils/logger');
-
-console.log("Email Config - Host:", process.env.EMAIL_HOST, "Port:", process.env.EMAIL_PORT, "User:", process.env.EMAIL_USER);
-
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
-  port: Number(process.env.EMAIL_PORT),
-  secure: process.env.EMAIL_PORT === '465',
+  port: process.env.EMAIL_PORT,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  connectionTimeout: 15000,
-  greetingTimeout: 10000,
-  socketTimeout: 15000,
+  tls: { rejectUnauthorized: false },
 });
+
+// console.log("Email Config - Host:", process.env.EMAIL_HOST, "Port:", process.env.EMAIL_PORT, "User:", process.env.EMAIL_USER);
+
+// const transporter = nodemailer.createTransport({
+//   host: process.env.EMAIL_HOST,
+//   port: Number(process.env.EMAIL_PORT),
+//   secure: process.env.EMAIL_PORT === '465',
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS,
+//   },
+//   tls: {
+//     rejectUnauthorized: false,
+//   },
+//   connectionTimeout: 15000,
+//   greetingTimeout: 10000,
+//   socketTimeout: 15000,
+// });
 
 transporter.verify((error, success) => {
   if (error) {
