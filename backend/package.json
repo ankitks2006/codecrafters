@@ -1,7 +1,7 @@
 {
-  "name": "codecrafterstech-backend",
+  "name": "theskillcoder-backend",
   "version": "1.0.0",
-  "description": "Code Crafters Tech - Internship & Learning Management Platform Backend",
+  "description": "TheSkillCoder - Internship & Learning Management Platform Backend",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",

@@ -68,7 +68,7 @@ const CourseDetailPage = () => {
       const { orderId, amount, keyId, paymentId: dbPaymentId } = orderRes.data.data;
 
       const options = {
-        key: keyId, amount, currency: 'INR', name: 'Code Crafters Tech',
+        key: keyId, amount, currency: 'INR', name: 'TheSkillCoder',
         description: course.title, order_id: orderId,
         image: '/logo.png',
         handler: async (response) => {

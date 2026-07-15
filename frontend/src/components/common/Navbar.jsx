@@ -47,10 +47,10 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center shadow-glow">
-              <span className="text-white font-black text-sm">CC</span>
+              <span className="text-white font-black text-sm">TSC</span>
             </div>
             <span className="font-bold text-lg text-gray-900 dark:text-white hidden sm:block">
-              Code <span className="text-gradient">Crafters</span> Tech
+              The Skill <span className="text-gradient">Coder</span> Tech
             </span>
           </Link>
 

@@ -53,7 +53,7 @@ const generateCertificatePDF = async (certificateData) => {
       doc.rect(20, H - 26, W - 40, 6).fill('#d4af37');
 
       // Header - Company name
-      doc.font('Helvetica-Bold').fontSize(13).fillColor('#d4af37').text('CODE CRAFTERS TECH', 0, 50, {
+      doc.font('Helvetica-Bold').fontSize(13).fillColor('#d4af37').text('THESKILLCODER', 0, 50, {
         align: 'center',
         width: W,
         characterSpacing: 4,
@@ -130,7 +130,7 @@ const generateCertificatePDF = async (certificateData) => {
       doc.font('Helvetica-Bold').fontSize(10).fillColor('#d4af37').text(certificateData.instructorName || 'Instructor', sig1X, sigY + 6, { width: 160, align: 'center' });
       doc.font('Helvetica').fontSize(9).fillColor('#9ca3af').text('INSTRUCTOR / MENTOR', sig1X, sigY + 20, { width: 160, align: 'center', characterSpacing: 1 });
 
-      doc.font('Helvetica-Bold').fontSize(10).fillColor('#d4af37').text('Director, Code Crafters Tech', sig2X, sigY + 6, { width: 160, align: 'center' });
+      doc.font('Helvetica-Bold').fontSize(10).fillColor('#d4af37').text('Director, TheSkillCoder', sig2X, sigY + 6, { width: 160, align: 'center' });
       doc.font('Helvetica').fontSize(9).fillColor('#9ca3af').text('AUTHORIZED SIGNATORY', sig2X, sigY + 20, { width: 160, align: 'center', characterSpacing: 1 });
 
       // QR Code
@@ -150,7 +150,7 @@ const generateCertificatePDF = async (certificateData) => {
       doc.save();
       doc.rotate(-45, { origin: [W / 2, H / 2] });
       doc.font('Helvetica-Bold').fontSize(72).fillColor('#d4af37').opacity(0.04)
-        .text('CODE CRAFTERS TECH', W / 2 - 250, H / 2 - 36);
+        .text('THESKILLCODER', W / 2 - 250, H / 2 - 36);
       doc.restore();
 
       doc.end();
@@ -164,7 +164,7 @@ const uploadCertificatePDF = async (pdfBuffer, certificateId) => {
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(
       {
-        folder: 'codecrafterstech/certificates',
+        folder: 'theskillcoder/certificates',
         public_id: `cert_${certificateId}`,
         resource_type: 'raw',
         format: 'pdf',
@@ -199,7 +199,7 @@ const certificateService = {
         title: 'Certificate of Completion',
         courseName: course?.title,
         internshipName: internship?.title,
-        instructorName: instructor?.fullName || instructor?.firstName + ' ' + instructor?.lastName || 'Code Crafters Team',
+        instructorName: instructor?.fullName || instructor?.firstName + ' ' + instructor?.lastName || 'TheSkillCoder Team',
         duration,
         issueDate: new Date(),
       });

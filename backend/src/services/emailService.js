@@ -23,19 +23,19 @@ const emailStyles = `
 const baseTemplate = (content) => `
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Code Crafters Tech</title>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TheSkillCoder</title>
 <style>${emailStyles}</style></head>
 <body>
 <div class="wrapper">
   <div class="header">
-    <h1>⚡ Code Crafters Tech</h1>
+    <h1>⚡ TheSkillCoder</h1>
     <p>Internship & Learning Management Platform</p>
   </div>
   <div class="body">${content}</div>
   <div class="footer">
-    <p>© ${new Date().getFullYear()} Code Crafters Tech. All rights reserved.</p>
+    <p>© ${new Date().getFullYear()} TheSkillCoder. All rights reserved.</p>
     <p>You received this email because you registered on our platform.</p>
-    <p>If you did not perform this action, please contact <a href="mailto:support@codecrafterstech.com">support@codecrafterstech.com</a></p>
+    <p>If you did not perform this action, please contact <a href="mailto:support@theskillcoder.com">support@theskillcoder.com</a></p>
   </div>
 </div>
 </body>
@@ -45,7 +45,7 @@ const templates = {
   otpVerification: (name, otp) =>
     baseTemplate(`
       <h2>Hello, ${name}! 👋</h2>
-      <p>Thank you for registering with Code Crafters Tech. Please verify your email address using the OTP below:</p>
+      <p>Thank you for registering with TheSkillCoder. Please verify your email address using the OTP below:</p>
       <div class="otp-box">
         <p style="margin:0;color:#6b7280;font-size:14px;margin-bottom:8px;">Your verification code</p>
         <div class="otp-code">${otp}</div>
@@ -56,7 +56,7 @@ const templates = {
 
   welcomeEmail: (name) =>
     baseTemplate(`
-      <h2>Welcome to Code Crafters Tech, ${name}! 🎉</h2>
+      <h2>Welcome to TheSkillCoder, ${name}! 🎉</h2>
       <p>Your account has been successfully verified. You're now ready to start your learning journey!</p>
       <p>Here's what you can do:</p>
       <ul>
@@ -151,25 +151,25 @@ const sendEmail = async ({ to, subject, html, attachments = [] }) => {
 
 const emailService = {
   sendOTP: (email, name, otp) =>
-    sendEmail({ to: email, subject: 'Verify Your Email - Code Crafters Tech', html: templates.otpVerification(name, otp) }),
+    sendEmail({ to: email, subject: 'Verify Your Email - TheSkillCoder', html: templates.otpVerification(name, otp) }),
 
   sendWelcome: (email, name) =>
-    sendEmail({ to: email, subject: 'Welcome to Code Crafters Tech! 🎉', html: templates.welcomeEmail(name) }),
+    sendEmail({ to: email, subject: 'Welcome to TheSkillCoder! 🎉', html: templates.welcomeEmail(name) }),
 
   sendPasswordReset: (email, name, link) =>
-    sendEmail({ to: email, subject: 'Reset Your Password - Code Crafters Tech', html: templates.resetPassword(name, link) }),
+    sendEmail({ to: email, subject: 'Reset Your Password - TheSkillCoder', html: templates.resetPassword(name, link) }),
 
   sendPaymentSuccess: (email, name, details) =>
-    sendEmail({ to: email, subject: '✅ Payment Confirmed - Code Crafters Tech', html: templates.paymentSuccess(name, details) }),
+    sendEmail({ to: email, subject: '✅ Payment Confirmed - TheSkillCoder', html: templates.paymentSuccess(name, details) }),
 
   sendCertificate: (email, name, details) =>
-    sendEmail({ to: email, subject: '🏆 Your Certificate is Ready - Code Crafters Tech', html: templates.certificateGenerated(name, details) }),
+    sendEmail({ to: email, subject: '🏆 Your Certificate is Ready - TheSkillCoder', html: templates.certificateGenerated(name, details) }),
 
   sendAssignmentReminder: (email, name, details) =>
-    sendEmail({ to: email, subject: '⏰ Assignment Due Soon - Code Crafters Tech', html: templates.assignmentReminder(name, details) }),
+    sendEmail({ to: email, subject: '⏰ Assignment Due Soon - TheSkillCoder', html: templates.assignmentReminder(name, details) }),
 
   sendTicketUpdate: (email, name, ticketId, status, reply) =>
-    sendEmail({ to: email, subject: `Ticket ${ticketId} Updated - Code Crafters Tech`, html: templates.ticketUpdate(name, ticketId, status, reply) }),
+    sendEmail({ to: email, subject: `Ticket ${ticketId} Updated - TheSkillCoder`, html: templates.ticketUpdate(name, ticketId, status, reply) }),
 };
 
 module.exports = emailService;

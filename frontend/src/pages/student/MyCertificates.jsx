@@ -30,7 +30,7 @@ const MyCertificates = () => {
   const handleShare = (cert) => {
     const url = `${window.location.origin}/verify/${cert.certificateId}`;
     if (navigator.share) {
-      navigator.share({ title: 'My Certificate - Code Crafters Tech', text: `I earned a certificate from Code Crafters Tech!`, url });
+      navigator.share({ title: 'My Certificate - TheSkillCoder', text: `I earned a certificate from TheSkillCoder!`, url });
     } else {
       navigator.clipboard.writeText(url);
       toast.success('Verification link copied!');

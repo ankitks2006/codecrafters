@@ -10,7 +10,7 @@ cloudinary.config({
 const uploadToCloudinary = async (filePath, folder, options = {}) => {
   try {
     const result = await cloudinary.uploader.upload(filePath, {
-      folder: `codecrafterstech/${folder}`,
+      folder: `theskillcoder/${folder}`,
       ...options,
     });
     return result;
@@ -30,7 +30,7 @@ const deleteFromCloudinary = async (publicId) => {
 
 const uploadStream = (folder, options = {}) => {
   return cloudinary.uploader.upload_stream(
-    { folder: `codecrafterstech/${folder}`, ...options },
+    { folder: `theskillcoder/${folder}`, ...options },
     (error, result) => {
       if (error) throw error;
       return result;

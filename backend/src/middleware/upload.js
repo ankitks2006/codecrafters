@@ -40,7 +40,7 @@ const uploadToCloudinaryBuffer = async (buffer, folder, options = {}) => {
   const { cloudinary } = require('../config/cloudinary');
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(
-      { folder: `codecrafterstech/${folder}`, ...options },
+      { folder: `theskillcoder/${folder}`, ...options },
       (error, result) => {
         if (error) reject(error);
         else resolve(result);

@@ -115,7 +115,7 @@ export const InternshipDetailPage = () => {
         key: keyId,
         amount,
         currency: 'INR',
-        name: 'Code Crafters Tech',
+        name: 'TheSkillCoder',
         description: internship.title,
         order_id: orderId,
         image: '/logo.png',

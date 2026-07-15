@@ -1,4 +1,4 @@
-# ⚡ Code Crafters Tech — Internship & Learning Management Platform
+# ⚡ TheSkillCoder — Internship & Learning Management Platform
 
 > India's premier full-stack LMS & Internship Platform built with MERN stack.
 
@@ -64,8 +64,8 @@ project/
 ### 1. Clone & Setup
 
 ```bash
-git clone https://github.com/yourorg/codecrafterstech.git
-cd codecrafterstech
+git clone https://github.com/yourorg/theskillcoder.git
+cd theskillcoder
 ```
 
 ### 2. Backend Setup
@@ -312,7 +312,7 @@ Upload videos to MEGA manually, copy the share link, paste it when creating less
 
 Every certificate has:
 - Unique ID: `CCT-A1B2C3D4-K7M9P2`
-- QR Code → `https://codecrafterstech.com/verify/:certificateId`
+- QR Code → `https://theskillcoder.com/verify/:certificateId`
 - PDF with watermark, company branding, digital signature area
 - Revocation support (shows INVALID CERTIFICATE when revoked)
 
@@ -357,7 +357,7 @@ Every certificate has:
 
 ## 📧 Email Templates
 
-All emails are styled HTML with Code Crafters Tech branding:
+All emails are styled HTML with TheSkillCoder branding:
 
 - OTP Verification
 - Welcome Email
@@ -387,14 +387,14 @@ MIT License — see [LICENSE](LICENSE) file.
 
 ## 📞 Support
 
-- Email: support@codecrafterstech.com
-- Website: https://codecrafterstech.com
-- GitHub Issues: [Open an issue](https://github.com/yourorg/codecrafterstech/issues)
+- Email: support@theskillcoder.com
+- Website: https://theskillcoder.com
+- GitHub Issues: [Open an issue](https://github.com/yourorg/theskillcoder/issues)
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ by Code Crafters Tech Team</p>
+  <p>Made with ❤️ by TheSkillCoder Team</p>
   <p>⭐ Star this repo if it helped you!</p>
 </div> -->
 

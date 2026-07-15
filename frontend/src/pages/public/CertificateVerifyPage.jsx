@@ -56,7 +56,7 @@ const CertificateVerifyPage = () => {
             <FiAward size={28} className="text-white" />
           </div>
           <h1 className="text-3xl font-black text-gray-900 dark:text-white mb-2">Certificate Verification</h1>
-          <p className="text-gray-500 dark:text-gray-400">Verify the authenticity of Code Crafters Tech certificates</p>
+          <p className="text-gray-500 dark:text-gray-400">Verify the authenticity of TheSkillCoder certificates</p>
         </motion.div>
 
         {/* Manual input */}
@@ -116,7 +116,7 @@ const CertificateVerifyPage = () => {
                   <FiAward size={36} className="text-white" />
                 </div>
                 <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-1">Certificate of Completion</h2>
-                <p className="text-primary-600 dark:text-primary-400 font-semibold">Code Crafters Tech</p>
+                <p className="text-primary-600 dark:text-primary-400 font-semibold">TheSkillCoder</p>
               </div>
 
               <div className="space-y-4 mb-8">
@@ -170,8 +170,8 @@ const CertificateVerifyPage = () => {
 
         {/* Footer note */}
         <p className="text-center text-xs text-gray-400 mt-6">
-          This verification system is maintained by Code Crafters Tech.
-          For support, contact <a href="mailto:support@codecrafterstech.com" className="text-primary-500">support@codecrafterstech.com</a>
+          This verification system is maintained by TheSkillCoder.
+          For support, contact <a href="mailto:support@theskillcoder.com" className="text-primary-500">support@theskillcoder.com</a>
         </p>
       </div>
     </div>

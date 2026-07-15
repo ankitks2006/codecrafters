@@ -48,7 +48,7 @@ const LoginPage = () => {
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-4">
             <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-glow">
-              <span className="text-white font-black">CC</span>
+              <span className="text-white font-black">TSC</span>
             </div>
           </Link>
           <h1 className="text-2xl font-black text-white">Welcome Back!</h1>

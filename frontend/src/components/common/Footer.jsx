@@ -30,9 +30,9 @@ const Footer = () => (
         <div className="lg:col-span-2">
           <Link to="/" className="flex items-center gap-2 mb-4">
             <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-glow">
-              <span className="text-white font-black">CC</span>
+              <span className="text-white font-black">TSC</span>
             </div>
-            <span className="font-bold text-xl text-white">Code <span className="text-primary-400">Crafters</span> Tech</span>
+            <span className="font-bold text-xl text-white">The <span className="text-primary-400">Skill</span> Coder</span>
           </Link>
           <p className="text-sm text-gray-400 leading-relaxed mb-6 max-w-xs">
             India's premier internship & learning management platform. Build real skills, earn verified certificates, and launch your tech career.
@@ -40,7 +40,7 @@ const Footer = () => (
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm text-gray-400">
               <FiMail size={14} className="text-primary-400" />
-              <span>contact@codecrafterstech.com</span>
+              <span>contact@theskillcoder.com</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-gray-400">
               <FiPhone size={14} className="text-primary-400" />
@@ -53,10 +53,10 @@ const Footer = () => (
           </div>
           <div className="flex gap-3 mt-6">
             {[
-              { icon: FiGithub, href: 'https://github.com/codecrafterstech' },
-              { icon: FiLinkedin, href: 'https://linkedin.com/company/codecrafterstech' },
-              { icon: FiTwitter, href: 'https://twitter.com/codecrafterstech' },
-              { icon: FiInstagram, href: 'https://instagram.com/codecrafterstech' },
+              { icon: FiGithub, href: 'https://github.com/theskillcoder' },
+              { icon: FiLinkedin, href: 'https://linkedin.com/company/theskillcoder' },
+              { icon: FiTwitter, href: 'https://twitter.com/theskillcoder' },
+              { icon: FiInstagram, href: 'https://instagram.com/theskillcoder' },
             ].map(({ icon: Icon, href }) => (
               <a key={href} href={href} target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-dark-300 hover:bg-primary-600 flex items-center justify-center text-gray-400 hover:text-white transition-all">
@@ -84,7 +84,7 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-dark-300 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-gray-500">© {new Date().getFullYear()} Code Crafters Tech. All rights reserved.</p>
+        <p className="text-sm text-gray-500">© {new Date().getFullYear()} TheSkillCoder. All rights reserved.</p>
         <div className="flex items-center gap-4">
           <span className="text-xs text-gray-500">Made with ❤️ in India</span>
           <Link to="/verify/demo" className="text-xs text-primary-400 hover:text-primary-300 transition-colors">

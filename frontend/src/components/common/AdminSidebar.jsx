@@ -87,7 +87,7 @@ const AdminSidebar = () => {
               <span className="text-white font-black text-xs">CC</span>
             </div>
             <div>
-              <p className="font-bold text-xs text-white">Code Crafters</p>
+              <p className="font-bold text-xs text-white">TheSkillCoder</p>
               <p className="text-xs text-primary-400">Admin Panel</p>
             </div>
           </motion.div>

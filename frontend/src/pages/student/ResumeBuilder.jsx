@@ -63,7 +63,7 @@ const ResumeBuilder = () => {
             />
             <div>
               <h2 className="text-3xl font-black">{user?.firstName} {user?.lastName}</h2>
-              <p className="text-white/80 mt-1">{user?.bio || 'Tech Enthusiast | Code Crafters Tech Graduate'}</p>
+              <p className="text-white/80 mt-1">{user?.bio || 'Tech Enthusiast | TheSkillCoder Graduate'}</p>
               <div className="flex flex-wrap gap-4 mt-3 text-sm text-white/70">
                 {user?.email && <span>📧 {user.email}</span>}
                 {user?.phone && <span>📱 {user.phone}</span>}
@@ -106,7 +106,7 @@ const ResumeBuilder = () => {
                   <div key={cert._id} className="flex items-start justify-between">
                     <div>
                       <p className="font-semibold text-gray-900 dark:text-white text-sm">{cert.courseName || cert.internshipName}</p>
-                      <p className="text-xs text-gray-500">Code Crafters Tech • ID: {cert.certificateId}</p>
+                      <p className="text-xs text-gray-500">TheSkillCoder • ID: {cert.certificateId}</p>
                     </div>
                     <span className="text-xs text-gray-500">{new Date(cert.issueDate).toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</span>
                   </div>

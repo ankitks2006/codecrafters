@@ -21,7 +21,7 @@ const AuthLayout = ({ title, subtitle, children }) => (
       <div className="text-center mb-8">
         <Link to="/" className="inline-flex items-center gap-2 mb-4">
           <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-glow">
-            <span className="text-white font-black">CC</span>
+            <span className="text-white font-black">TSC</span>
           </div>
         </Link>
         <h1 className="text-2xl font-black text-white">{title}</h1>
@@ -120,7 +120,7 @@ export const RegisterPage = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-200 mb-1.5">Referral Code (optional)</label>
-          <input {...register('referralCode')} placeholder="CCT123456" className={inputClass} />
+          <input {...register('referralCode')} placeholder="TSCT123456" className={inputClass} />
         </div>
 
         <button type="submit" disabled={loading} className="w-full btn-primary py-3.5 flex items-center justify-center gap-2 shadow-glow mt-2">

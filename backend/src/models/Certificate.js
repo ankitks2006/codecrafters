@@ -6,7 +6,7 @@ const certificateSchema = new mongoose.Schema(
     certificateId: {
       type: String,
       unique: true,
-      default: () => `CCT-${uuidv4().split('-')[0].toUpperCase()}-${Date.now().toString(36).toUpperCase()}`,
+      default: () => `TSCT-${uuidv4().split('-')[0].toUpperCase()}-${Date.now().toString(36).toUpperCase()}`,
     },
     student: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     type: { type: String, enum: ['course', 'internship'], required: true },

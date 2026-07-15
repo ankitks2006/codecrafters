@@ -25,7 +25,7 @@ const features = [
 ];
 
 const testimonials = [
-  { name: 'Priya Sharma', role: 'SDE at Amazon', img: 'https://randomuser.me/api/portraits/women/44.jpg', text: 'Code Crafters Tech transformed my career. The internship program gave me real experience that landed me my dream job.' },
+  { name: 'Priya Sharma', role: 'SDE at Amazon', img: 'https://randomuser.me/api/portraits/women/44.jpg', text: 'TheSkillCoder transformed my career. The internship program gave me real experience that landed me my dream job.' },
   { name: 'Rahul Gupta', role: 'Full Stack Dev at Flipkart', img: 'https://randomuser.me/api/portraits/men/32.jpg', text: 'The courses are top-notch. I went from zero to building full-stack apps in just 3 months. Highly recommend!' },
   { name: 'Ananya Patel', role: 'Data Scientist at Infosys', img: 'https://randomuser.me/api/portraits/women/68.jpg', text: 'The certificate I earned here helped me clear interviews. The QR verification feature impressed every interviewer.' },
 ];
@@ -265,7 +265,7 @@ const LandingPage = () => {
         <div className="relative max-w-3xl mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Ready to Start Your Journey?</h2>
-            <p className="text-primary-100 text-lg mb-8">Join 15,000+ students already learning and growing with Code Crafters Tech.</p>
+            <p className="text-primary-100 text-lg mb-8">Join 15,000+ students already learning and growing with TheSkillCoder.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/register" className="bg-white text-primary-600 hover:bg-gray-50 font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl">
                 Start Free Today →
