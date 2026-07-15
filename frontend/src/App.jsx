@@ -61,6 +61,7 @@ const AdminEnrollments = lazy(() => import('./pages/admin/Enrollments'));
 const AdminAssignments = lazy(() => import('./pages/admin/Assignments'));
 const AdminQuizzes = lazy(() => import('./pages/admin/Quizzes'));
 const AdminBlogs = lazy(() => import('./pages/admin/Blogs'));
+const AdminBlogForm = lazy(() => import('./pages/admin/BlogForm'));
 const AdminSupport = lazy(() => import('./pages/admin/Support'));
 const AdminNotifications = lazy(() => import('./pages/admin/Notifications'));
 const AdminSettings = lazy(() => import('./pages/admin/Settings'));
@@ -175,6 +176,8 @@ function App() {
                 <Route path="/admin/assignments" element={<AdminAssignments />} />
                 <Route path="/admin/quizzes" element={<AdminQuizzes />} />
                 <Route path="/admin/blogs" element={<AdminBlogs />} />
+                <Route path="/admin/blogs/new" element={<AdminBlogForm />} />
+                <Route path="/admin/blogs/:id/edit" element={<AdminBlogForm />} />
                 <Route path="/admin/support" element={<AdminSupport />} />
                 <Route path="/admin/notifications" element={<AdminNotifications />} />
                 <Route path="/admin/categories" element={<AdminCategories />} />

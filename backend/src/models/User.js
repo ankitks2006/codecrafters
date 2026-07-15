@@ -77,7 +77,7 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
 
 // Generate referral code
 userSchema.methods.generateReferralCode = function () {
-  const code = `CCT${this._id.toString().slice(-6).toUpperCase()}`;
+  const code = `TSCT${this._id.toString().slice(-6).toUpperCase()}`;
   this.referralCode = code;
   return code;
 };

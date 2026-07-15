@@ -118,7 +118,9 @@ export const notificationService = {
 // Blog Services
 export const blogService = {
   getAll: (params) => api.get('/blog', { params }),
+  getAllForAdmin: (params) => api.get('/blog/admin', { params }),
   getBySlug: (slug) => api.get(`/blog/${slug}`),
+  getForAdmin: (id) => api.get(`/blog/admin/${id}`),
   create: (formData) => api.post('/blog', formData, { headers: { 'Content-Type': 'multipart/form-data' } }),
   update: (id, formData) => api.put(`/blog/${id}`, formData, { headers: { 'Content-Type': 'multipart/form-data' } }),
   delete: (id) => api.delete(`/blog/${id}`),

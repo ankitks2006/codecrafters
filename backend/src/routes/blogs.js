@@ -25,6 +25,28 @@ router.get('/', optionalAuth, async (req, res, next) => {
   } catch (e) { next(e); }
 });
 
+router.get('/admin', authenticate, isAdmin, async (req, res, next) => {
+  try {
+    const { page = 1, limit = 12, search } = req.query;
+    const query = {};
+    if (search) query.$text = { $search: search };
+    const skip = (page - 1) * limit;
+    const [blogs, total] = await Promise.all([
+      Blog.find(query).populate('author', 'firstName lastName avatar').populate('category', 'name slug').select('-content').sort('-createdAt').skip(skip).limit(Number(limit)),
+      Blog.countDocuments(query),
+    ]);
+    return ApiResponse.paginated(res, blogs, { page: Number(page), limit: Number(limit), total, pages: Math.ceil(total / limit) });
+  } catch (e) { next(e); }
+});
+
+router.get('/admin/:id', authenticate, isAdmin, async (req, res, next) => {
+  try {
+    const blog = await Blog.findById(req.params.id).populate('author', 'firstName lastName').populate('category', 'name slug');
+    if (!blog) return ApiResponse.notFound(res, 'Blog not found');
+    return ApiResponse.success(res, blog);
+  } catch (e) { next(e); }
+});
+
 router.get('/:slug', async (req, res, next) => {
   try {
     const blog = await Blog.findOne({ slug: req.params.slug, status: 'published' })
@@ -39,12 +61,23 @@ router.get('/:slug', async (req, res, next) => {
 router.post('/', authenticate, isAdmin, upload.single('thumbnail'), async (req, res, next) => {
   try {
     const data = { ...req.body, author: req.user._id };
+    if (!data.category) delete data.category;
     if (req.file) {
       const result = await uploadToCloudinaryBuffer(req.file.buffer, 'blogs');
       data.thumbnail = result.secure_url;
       data.thumbnailPublicId = result.public_id;
     }
     if (data.status === 'published') data.publishedAt = new Date();
+    if (data.metaTitle || data.metaDescription || data.metaKeywords) {
+      data.meta = {
+        title: data.metaTitle,
+        description: data.metaDescription,
+        keywords: data.metaKeywords ? data.metaKeywords.split(',').map(k => k.trim()).filter(Boolean) : [],
+      };
+      delete data.metaTitle;
+      delete data.metaDescription;
+      delete data.metaKeywords;
+    }
     const blog = await Blog.create(data);
     return ApiResponse.created(res, blog);
   } catch (e) { next(e); }
@@ -53,12 +86,23 @@ router.post('/', authenticate, isAdmin, upload.single('thumbnail'), async (req, 
 router.put('/:id', authenticate, isAdmin, upload.single('thumbnail'), async (req, res, next) => {
   try {
     const data = { ...req.body };
+    if (!data.category) delete data.category;
     if (req.file) {
       const result = await uploadToCloudinaryBuffer(req.file.buffer, 'blogs');
       data.thumbnail = result.secure_url;
       data.thumbnailPublicId = result.public_id;
     }
     if (data.status === 'published' && !req.body.publishedAt) data.publishedAt = new Date();
+    if (data.metaTitle || data.metaDescription || data.metaKeywords) {
+      data.meta = {
+        title: data.metaTitle,
+        description: data.metaDescription,
+        keywords: data.metaKeywords ? data.metaKeywords.split(',').map(k => k.trim()).filter(Boolean) : [],
+      };
+      delete data.metaTitle;
+      delete data.metaDescription;
+      delete data.metaKeywords;
+    }
     const blog = await Blog.findByIdAndUpdate(req.params.id, data, { new: true });
     if (!blog) return ApiResponse.notFound(res, 'Blog not found');
     return ApiResponse.success(res, blog, 'Blog updated');

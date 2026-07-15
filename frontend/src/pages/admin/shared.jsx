@@ -184,7 +184,7 @@ export const AdminBlogs = () => {
   const [deleteTarget, setDeleteTarget] = useState(null);
   const [deleting, setDeleting] = useState(false);
 
-  const { data, isLoading } = useQuery(['admin-blogs', page], () => blogService.getAll({ page, limit: 12 }), { keepPreviousData: true });
+  const { data, isLoading } = useQuery(['admin-blogs', page], () => blogService.getAllForAdmin({ page, limit: 12 }), { keepPreviousData: true });
   const blogs = data?.data?.data || [];
   const pagination = data?.data?.pagination || {};
 
@@ -230,6 +230,9 @@ export const AdminBlogs = () => {
                 </div>
                 <span className={`badge text-xs ${blog.status === 'published' ? 'badge-success' : 'badge-warning'}`}>{blog.status}</span>
                 <Link to={`/blog/${blog.slug}`} target="_blank" className="btn-secondary text-xs py-1.5 px-3">View</Link>
+                <Link to={`/admin/blogs/${blog._id}/edit`} className="p-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 text-blue-500 transition-all">
+                  <FiEdit2 size={14} />
+                </Link>
                 <button onClick={() => setDeleteTarget(blog)} className="p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500 transition-all">
                   <FiTrash2 size={14} />
                 </button>
