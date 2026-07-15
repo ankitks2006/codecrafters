@@ -52,9 +52,9 @@ const StudentSidebar = () => {
         {sidebarOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-              <span className="text-white font-black text-xs">CC</span>
+              <span className="text-white font-black text-xs">TSC</span>
             </div>
-            <span className="font-bold text-sm text-gray-900 dark:text-white">CCT</span>
+            <span className="font-bold text-sm text-gray-900 dark:text-white">TSCT</span>
           </motion.div>
         )}
         <button onClick={() => dispatch(toggleSidebar())}
