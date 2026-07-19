@@ -399,3 +399,62 @@ MIT License — see [LICENSE](LICENSE) file.
 </div> -->
 
 <!--email  vagadax478@heavty.com -->
+# Server
+NODE_ENV=development
+PORT=5000
+FRONTEND_URL=https://theskillcoder.netlify.app
+
+# MongoDB
+# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/theskillcoder
+MONGODB_URI=mongodb://localhost:27017/internship_platform
+# MONGODB_URI=mongodb+srv://test:safjfdskjhi1237848957899@cluster0.d7kr6rb.mongodb.net/theskillcoder
+# JWT
+JWT_ACCESS_SECRET=your_super_secret_access_key_here_change_in_production
+JWT_REFRESH_SECRET=your_super_secret_refresh_key_here_change_in_production
+JWT_ACCESS_EXPIRE=15m
+JWT_REFRESH_EXPIRE=30d
+
+# Cloudinary
+CLOUDINARY_CLOUD_NAME=dfwe289574893754jh2
+CLOUDINARY_API_KEY=49756811113285fkdjkl9
+CLOUDINARY_API_SECRET=mKtrvpPCfkljsklfjdkl7qhX7dY9sL5wef3iRdo
+
+# SendGrid
+SENDGRID_API_KEY=SG.e3hEuCTJSxypMz18OAm3dQ.-4hpLaOqHVIXKEBTCYpRLo
+EMAIL_FROM=TheSkillCoder <rahull@gmail..com>
+
+# Razorpay
+RAZORPAY_KEY_ID=rzp_test_T8fSJSCCLbqxhjghjgjhghjghjgjhghjer
+RAZORPAY_KEY_SECRET=un1h0XZhhfhfghfghfhfghfghfghfghfhfZXZ4wBDfu7Gd5EJP
+
+# Google OAuth
+GOOGLE_CLIENT_ID=895294895504-6r45t9j2hygjghjghjghjgjhgjhq30g411jt6f4phmdbg04off.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=GOCSPX-xyIWlCEkPsAhjS gfhgfghfghfghfghfghfXPhjMnHOAUCdm-
+GOOGLE_REDIRECT_URI=http://localhost:5000/api/auth/google/callback
+# App
+# APP_URL=https://theskillcoder.com
+# CERT_VERIFY_URL=https://theskillcoder.com/verify
+App_URL=https://theskillcoder.netlify.app
+CERT_VERIFY_URL=https://theskillcoder.netlify.app/verify
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX=100
+
+# Admin
+# ADMIN_EMAIL=admin@ccfffffffftheskillcoder.com
+# ADMIN_PASSWORD=Admin@hjjhj123456
+
+
+
+
+frontend
+
+
+VITE_API_URL=http://localhost:5000/api
+# VITE_API_URL=https://codecrafters-by7k.onrender.com/api
+# VITE_API_URL=https://codecrafters-production-480b.up.railway.app/api
+VITE_SOCKET_URL=http://localhost:5000
+VITE_RAZORPAY_KEY_ID=rzp_test_T8fSJSCCLjsdfkljkldfjldfbqxer
+VITE_APP_NAME=TheSkillCoder
+VITE_APP_URL=https://theskillcoder.com
